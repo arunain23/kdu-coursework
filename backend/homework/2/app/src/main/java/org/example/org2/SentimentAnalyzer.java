@@ -38,7 +38,7 @@ public class SentimentAnalyzer {
     private static int getOpinionOnFeature(String review, String feature,
                                            String[] posOpinionWords, String[] negOpinionWords) { // your code
         int val=checkForWasPhrasePattern(review,feature,posOpinionWords,negOpinionWords);
-        if(val==0) return checkForOpinionFirstPattern(review,feature,posOpinionWords,negOpinionWords);
+        if(val==0) return CheckForOpinionFirstPattern(review,feature,posOpinionWords,negOpinionWords);
         return val;
     }
 
@@ -80,7 +80,7 @@ public class SentimentAnalyzer {
         return null; // Target word not found or it is the first word in the sentence
     }
 
-    private static int checkForOpinionFirstPattern(String review, String
+    private static int CheckForOpinionFirstPattern(String review, String
             feature, String[] posOpinionWords,
                                                    String[] negOpinionWords) {
 // Extract sentences as feature might appear multiple times.
