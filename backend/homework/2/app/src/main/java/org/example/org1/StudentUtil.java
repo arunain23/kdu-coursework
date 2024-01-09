@@ -7,7 +7,7 @@ public class StudentUtil {
             studentsGrades) {
 // your code
         int n=studentIdList.length;
-        double[] StudentGpa=new double[n];
+        double[] Studentgpa=new double[n];
         for(int i=0;i<n;i++){
             double ans=0;
             for(int j=0;j<studentsGrades[i].length;j++){
@@ -15,9 +15,9 @@ public class StudentUtil {
                 else if(studentsGrades[i][j]=='B') ans+=3;
                 else ans+=2;
             }
-            StudentGpa[i]=(ans/studentsGrades[i].length);
+            Studentgpa[i]=(ans/studentsGrades[i].length);
         }
-        return StudentGpa;
+        return Studentgpa;
     }
     public static int[] getStudentsByGPA(double lower, double higher, int[]
             studentIdList, char[][] studentsGrades) {

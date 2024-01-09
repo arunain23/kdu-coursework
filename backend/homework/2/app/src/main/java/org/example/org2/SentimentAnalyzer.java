@@ -3,8 +3,8 @@ package org.example.org2;
 import org.example.Logg;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import org.slf4j.Logger;
+//import java.util.HashMap;
+//import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 public class SentimentAnalyzer {
     // Tip: labeled continue can be used when iterating featureSet + convert review to lower-case
@@ -30,11 +30,6 @@ public class SentimentAnalyzer {
 
         }
 
-//
-//            for(int j=0;j<featureSet[2].length;j++){
-//                int val=getOpinionOnFeature(finalstring,featureSet[2][j],posOpinionWords,negOpinionWords);
-//                if(val==-1 || val==1){ featureOpinions[2]=val; break;}
-//            }
 
 
         return featureOpinions;
@@ -59,14 +54,14 @@ public class SentimentAnalyzer {
 // your code
         int lastindex= review.lastIndexOf(pattern);
         lastindex+=pattern.length();
-        String Opinionword="";
-        while(lastindex<review.length() && review.charAt(lastindex)!=' '){ Opinionword+=review.charAt(lastindex); lastindex++;}
-//        System.out.println(Opinionword);
+        String OpinionWord="";
+        while(lastindex<review.length() && review.charAt(lastindex)!=' '){ OpinionWord+=review.charAt(lastindex); lastindex++;}
+
         for(String v:posOpinionWords){
-            if(Opinionword.equals(v)) return 1;
+            if(OpinionWord.equals(v)) return 1;
         }
         for(String v:negOpinionWords){
-            if(Opinionword.equals(v)) return -1;
+            if(OpinionWord.equals(v)) return -1;
         }
         return opinion;
     }
