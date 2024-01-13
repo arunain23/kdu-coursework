@@ -4,7 +4,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Logger;
 public class MessageQueue {
 
-    BlockingQueue<String> msgQueue;
+    private final BlockingQueue<String> msgQueue;
     Logger logger=Logger.getLogger(MessageQueue.class.getName());
     MessageQueue(){
         this.msgQueue=new LinkedBlockingQueue<>();

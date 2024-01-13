@@ -11,6 +11,7 @@ public class MessageSender implements Runnable{
         try {
             messageQueue.addMessage(message);
         } catch (InterruptedException e) {
+            logger.info("interrupt in add message");
             Thread.currentThread().interrupt();
         }
 

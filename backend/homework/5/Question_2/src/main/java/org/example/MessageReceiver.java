@@ -13,6 +13,7 @@ public class MessageReceiver implements Runnable {
         try {
             message = messageQueue.getMessage();
         } catch (InterruptedException e) {
+            logger.info("Interrupt in get message")
             Thread.currentThread().interrupt();
         }
 
