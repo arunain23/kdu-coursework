@@ -1,0 +1,26 @@
+// ServiceSpeaker.java
+package org.example;
+
+import org.springframework.context.annotation.Bean;
+
+public class ServiceSpeaker {
+
+    private ServiceSpeaker() {
+    }
+
+    @Bean
+    public static Speaker speaker1() {
+        Speaker speaker = new Speaker();
+        speaker.setBrand("Bose");
+        speaker.setPrice(22000.0);
+        return speaker;
+    }
+
+    @Bean
+    public static Speaker speaker2() {
+        Speaker speaker = new Speaker();
+        speaker.setBrand("Sony");
+        speaker.setPrice(20000.0);
+        return speaker;
+    }
+}
