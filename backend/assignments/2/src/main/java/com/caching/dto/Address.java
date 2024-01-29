@@ -8,7 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Address {
 
-    private String address;
+    private int address;
 
 
 }

@@ -2,13 +2,18 @@ package com.caching.service;
 
 import com.caching.dto.Address;
 import com.caching.dto.GeoCoordinates;
+import com.caching.exception.GeocodingException;
+import com.caching.exception.NoDataFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URLEncoder;
@@ -34,21 +39,34 @@ public class GeocodingService {
     public GeoCoordinates getGeocoding(String address) throws Exception {
 
         if(address.length()<3){
-            throw new Exception("address should be of atleast 3 characters");
+            throw new Exception("Please enter valid address");
         }
 
         String encodedAddress = URLEncoder.encode(address, StandardCharsets.UTF_8);
         String apiUrl = "http://api.positionstack.com/v1/forward?access_key=" + positionstackApiKey + "&query=" + encodedAddress;
         JsonNode response = restTemplate.getForObject(apiUrl, JsonNode.class);
-        JsonNode info= response.get("data").get(0);
 
+       JsonNode Data=null;
+
+        try {
+
+            Data = response.get("data").get(0);
+        } catch (NullPointerException | NumberFormatException e) {
+            throw new NoDataFoundException("Please enter valid coordinates");
+        }
+        if (Objects.isNull(Data)) {
+            throw new NoDataFoundException("Data object is null");
+        }
+
+
+//        Data= response.get("data").get(0);
         try{
-            Double Latitude= info.get("latitude").asDouble();
-            Double Longitude=info.get("longitude").asDouble();
+            Double Latitude= Data.get("latitude").asDouble();
+            Double Longitude=Data.get("longitude").asDouble();
             return new GeoCoordinates(Latitude,Longitude);
         }
-        catch (NumberFormatException e) {
-            throw new Exception("Invalid parameters: Latitude and Longitude must be valid numbers");
+        catch (NullPointerException | NumberFormatException e ) {
+            throw new GeocodingException("Invalid parameters: Latitude and Longitude must be valid numbers");
 
         }
 
@@ -61,7 +79,7 @@ public class GeocodingService {
 
 
     @Cacheable(value = "reverse-geocoding", key = "{#latitude,#longitude}", unless = "#result == null or #result.address == null")
-    public Address getReverseGeocoding(String latitude, String longitude) throws Exception {
+    public Address getReverseGeocoding(String latitude, String longitude) throws GeocodingException {
         logger.info("checking cache in reverse-geocoding");
 
 
@@ -72,20 +90,20 @@ public class GeocodingService {
 
         JsonNode response= restTemplate.getForObject( apiUrl, JsonNode.class);
 
-        JsonNode info = null;
+        JsonNode Data = null;
 
 
 
         try {
 
-            info = response.get("data").get(0);
-        } catch (NullPointerException e) {
-            throw new Exception("Please enter valid coordinates");
+            Data = response.get("data").get(0);
+        } catch (NullPointerException | NumberFormatException e) {
+            throw new NoDataFoundException("Please enter valid coordinates");
         }
-        if (Objects.isNull(info)) {
-            throw new Exception("Please enter the valid object coordinates");
+        if (Objects.isNull(Data)) {
+            throw new NoDataFoundException("Data object is null");
         }
-        Address address=new Address(info.get("region").toString());
+        Address address=new Address(Data.get("number").asInt());
         return address;
     }
 
