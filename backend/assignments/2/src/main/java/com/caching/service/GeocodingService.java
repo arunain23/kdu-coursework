@@ -43,22 +43,22 @@ public class GeocodingService {
         String apiUrl = "http://api.positionstack.com/v1/forward?access_key=" + positionstackApiKey + "&query=" + encodedAddress;
         JsonNode response = restTemplate.getForObject(apiUrl, JsonNode.class);
 
-       JsonNode Data=null;
+       JsonNode dataRetreived=null;
 
         try {
 
-            Data = response.get("data").get(0);
+            dataRetreived = response.get("data").get(0);
         } catch (NullPointerException | NumberFormatException e) {
             throw new NoDataFoundException("Please enter valid coordinates");
         }
-        if (Objects.isNull(Data)) {
+        if (Objects.isNull(dataRetreived)) {
             throw new NoDataFoundException("Data object is null");
         }
 
         try{
-            Double Latitude= Data.get("latitude").asDouble();
-            Double Longitude=Data.get("longitude").asDouble();
-            return new GeoCoordinates(Latitude,Longitude);
+            Double doubleLatitude= dataRetreived.get("latitude").asDouble();
+            Double doubleLongitude=dataRetreived.get("longitude").asDouble();
+            return new GeoCoordinates(doubleLatitude,doubleLongitude);
         }
         catch (NullPointerException | NumberFormatException e ) {
             throw new GeocodingException("Invalid parameters: Latitude and Longitude must be valid numbers");
@@ -85,21 +85,25 @@ public class GeocodingService {
 
         JsonNode response= restTemplate.getForObject( apiUrl, JsonNode.class);
 
-        JsonNode Data = null;
+        JsonNode dataRetreived = null;
 
 
 
         try {
-            Data = response.get("data").get(0);
+
+            dataRetreived = response.get("data").get(0);
         } catch (NullPointerException | NumberFormatException e) {
             throw new NoDataFoundException("Please enter valid coordinates");
         }
-        if (Objects.isNull(Data)) {
+        if (Objects.isNull(dataRetreived)) {
             throw new NoDataFoundException("Data object is null");
         }
 
-        return new Address(Data.get("number").asInt());
+        return new Address(dataRetreived.get("number").asInt());
     }
+
+
+
 
 
 }

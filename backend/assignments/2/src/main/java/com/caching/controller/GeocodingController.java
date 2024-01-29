@@ -1,5 +1,6 @@
 package com.caching.controller;
 
+import com.caching.dto.Address;
 import com.caching.dto.GeoCoordinates;
 import com.caching.exception.GeocodingException;
 import com.caching.service.GeocodingService;
