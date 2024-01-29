@@ -5,15 +5,12 @@ import com.caching.dto.GeoCoordinates;
 import com.caching.exception.GeocodingException;
 import com.caching.exception.NoDataFoundException;
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URLEncoder;
@@ -58,8 +55,6 @@ public class GeocodingService {
             throw new NoDataFoundException("Data object is null");
         }
 
-
-//        Data= response.get("data").get(0);
         try{
             Double Latitude= Data.get("latitude").asDouble();
             Double Longitude=Data.get("longitude").asDouble();
@@ -70,7 +65,7 @@ public class GeocodingService {
 
         }
 
-//        return new GeoCoordinates(info.get("latitude").asDouble(),info.get("longitude").asDouble());
+
 
 
     }
@@ -95,7 +90,6 @@ public class GeocodingService {
 
 
         try {
-
             Data = response.get("data").get(0);
         } catch (NullPointerException | NumberFormatException e) {
             throw new NoDataFoundException("Please enter valid coordinates");
@@ -103,12 +97,9 @@ public class GeocodingService {
         if (Objects.isNull(Data)) {
             throw new NoDataFoundException("Data object is null");
         }
-        Address address=new Address(Data.get("number").asInt());
-        return address;
+
+        return new Address(Data.get("number").asInt());
     }
-
-
-
 
 
 }

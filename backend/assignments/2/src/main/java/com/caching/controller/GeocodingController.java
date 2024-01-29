@@ -1,6 +1,5 @@
 package com.caching.controller;
 
-import com.caching.dto.Address;
 import com.caching.dto.GeoCoordinates;
 import com.caching.exception.GeocodingException;
 import com.caching.service.GeocodingService;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/api")
 public class GeocodingController {
 
     @Autowired

@@ -13,7 +13,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(GeocodingException.class)
     public ResponseEntity<String> handleGeocodingException(GeocodingException ex) {
-        // Customize the response for GeocodingException
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

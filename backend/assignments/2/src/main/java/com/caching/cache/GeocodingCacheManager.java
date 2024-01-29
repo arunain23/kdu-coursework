@@ -15,9 +15,9 @@ public class GeocodingCacheManager {
     @Bean
     public Caffeine caffeineConfig() {
         return Caffeine.newBuilder()
-                .expireAfterWrite(5, TimeUnit.MINUTES) // Set the expiration time
-                .maximumSize(100) // Set the maximum size of the cache
-                .recordStats(); // Enable statistics, if needed
+                .expireAfterWrite(5, TimeUnit.MINUTES)
+                .maximumSize(100)
+                .recordStats();
     }
 
     @Bean
