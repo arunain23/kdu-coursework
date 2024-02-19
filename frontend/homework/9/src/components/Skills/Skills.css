@@ -1,0 +1,15 @@
+.skills {
+  margin: 20px;
+  padding: 5px;
+  color: green;
+  height: 300px;
+  background-color: lightblue;
+  flex: 1;
+}
+.skills h2 {
+  color: orange;
+  text-align: center;
+}
+.skills ul {
+  list-style: none;
+}/*# sourceMappingURL=Skills.css.map */
