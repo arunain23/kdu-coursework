@@ -1,0 +1,14 @@
+.hobbies {
+  margin: 20px;
+  padding: 5px;
+  color: green;
+  background-color: lightgreen;
+  flex: 1;
+}
+.hobbies h2 {
+  color: orange;
+  text-align: center;
+}
+.hobbies ul {
+  list-style: none;
+}/*# sourceMappingURL=Hobbies.css.map */
