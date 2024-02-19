@@ -1,0 +1,39 @@
+* {
+  background-color: black;
+  color: white;
+}
+
+.login-container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.login-container h1 {
+  display: flex; /* Use flexbox */
+  align-items: baseline; /* Align items at the baseline */
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 20px;
+  font-size: 70px;
+}
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+.login-container input[type=text],
+.login-container input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #40A2E3;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.login-container button[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background-color: #40A2E3;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}/*# sourceMappingURL=login.css.map */
