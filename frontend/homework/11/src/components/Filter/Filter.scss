@@ -1,0 +1,43 @@
+$color-accent: #ee99c2;
+
+.filters {
+  display: flex;
+  padding: 20px;
+  align-items: flex-end;
+    overflow: hidden;
+    border-bottom: 1px solid black ;
+  }
+  
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .taged {
+    background-color: $color-accent;
+    padding: 8px 15px;
+    border-radius: 80px;
+    margin-right: 10px;
+  }
+  .tag {
+  padding: 15px;
+  font-weight: bold;
+  background-color: $color-accent;
+  border-radius: 80px;
+}
+.tag:hover {
+  cursor: pointer;
+}
+
+  .taged button {
+
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
