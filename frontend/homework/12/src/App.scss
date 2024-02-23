@@ -1,0 +1,47 @@
+*{
+    font-family:  Lato;
+}
+.Display{
+    display: flex;
+    flex-direction: column;
+}
+.upper-container{
+     display: flex;
+     flex-direction: row;
+     background-color: green;
+     height: 60px;
+     align-items: center;
+     justify-content: space-around;
+}
+
+@font-face {
+    font-family: "Lato", sans-serif;;
+    src: url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+}
+
+
+.header{
+    display: flex;
+    color: white;
+    font-size: 40px;
+   
+}
+
+.lower-container{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 50px;
+    margin-left: 20%;
+    padding : 10px;
+    width: 60%;
+    border: 2px solid grey;
+   
+}
+
+.add-button-container{
+    margin-left: 40px;
+}
+
+.add-button-container h2{
+    font-size: 32;
+}
