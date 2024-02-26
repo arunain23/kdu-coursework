@@ -1,0 +1,41 @@
+
+.product-detail {
+margin: 100px;
+  padding :20px;
+
+  // Clearfix to contain floated elements
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+    // Centering the product title
+    > div {
+     
+
+      h3 {
+        // Additional styles for the title if needed
+        // Example:
+        // color: #333;
+        text-align: center;
+      }
+    }
+    align-items: center;
+  // Floating elements
+  .product-image {
+    float: left;
+  }
+
+  .product-info {
+    padding: 30px;
+    max-width: 600px;
+    float: left;
+  }
+  button{
+    color: lightseagreen;
+    background-color: white;
+    border: 1px solid lightseagreen;
+    padding: 10px;
+  }
+}
