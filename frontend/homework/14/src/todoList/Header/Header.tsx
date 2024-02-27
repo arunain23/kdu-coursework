@@ -1,23 +1,26 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState , setSearchInput, setSearchList} from '../../redux/reduxstore';
+import { RootState, setSearchInput, setSearchList } from '../../redux/reduxstore';
 import './Header.css'
 
-export interface Item{
+/** Interface for an item */
+export interface Item {
     id: number;
     text: string;
     isCompleted: number;
 }
 
+/** Functional component for the header */
 export function Header() {
     const list = useSelector((state: RootState) => state.itemList.list)
     const searchInput = useSelector((state: RootState) => state.itemList.searchInput)
 
     const reduxDispatch = useDispatch();
 
+    /** Function to handle search input change */
     const searchItem = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const searchText: string = event.target.value.trim().toLowerCase(); 
-        const searchResultList = list.filter((item: Item) => {  
+        const searchText: string = event.target.value.trim().toLowerCase();
+        const searchResultList = list.filter((item: Item) => {
             return item.text.toLowerCase().includes(searchText);
         });
         reduxDispatch(setSearchInput(searchText))
@@ -25,9 +28,9 @@ export function Header() {
     };
 
     return (
-        <div className="header-container"> 
+        <div className="header-container">
             <h1 className="header-title">Item Lister</h1>
-            <input className="header-input" type="text" placeholder='Search Items' value={searchInput} onChange={searchItem}/>
+            <input className="header-input" type="text" placeholder='Search Items' value={searchInput} onChange={searchItem} />
         </div>
     )
 }
