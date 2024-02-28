@@ -41,8 +41,8 @@ export function AddItem() {
       <h2 className="h2">Add Items</h2>
       <div className="divStyles">
         <div>
-          <input type="text" id='item-add-input' className="input" />
-          <button onClick={addItemToList} className="button">Submit</button>
+          <input  data-testid="addItemInput" type="text" id='item-add-input' className="input" />
+          <button  data-testid="addItemButton" id='add-item-input'  onClick={addItemToList} className="button">Submit</button>
         </div>
         <div>
           <button onClick={clearList} className="button">Clear</button>

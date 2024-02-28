@@ -58,18 +58,18 @@ export function ItemList() {
     }
 
     return (
-        <div className='item-list'>
+        <div  className='item-list'>
             <h2>Items</h2>
-            <ul>
+            <ul data-testid="testItemList">
                 {
                     toIterateOverList.map((item: Item) => {
                         return (
                             <div className={item.isCompleted ? "li-div completed-item" : "li-div"} key={item.id}>
                                 <div className="li-check-style">
-                                    <input type="checkbox" onChange={() => handleChange(item.id)} checked={item.isCompleted ===1} />
-                                    <li className={item.isCompleted ? "completed-item" : ""}>{item.text}</li>
+                                    <input data-testid="new-checkbox"  type="checkbox" onChange={() => handleChange(item.id)} checked={item.isCompleted ===1} />
+                                    <li data-testid="completed-checkbox" className={item.isCompleted ? "completed-item" : ""}>{item.text}</li>
                                 </div>
-                                <button className="button" onClick={() => deleteItem(item.id)}>X</button>
+                                <button  data-testid="deleteItemList" id='delete-button-input'  className="button" onClick={() => deleteItem(item.id)}>X</button>
                             </div>
                         )
                     })

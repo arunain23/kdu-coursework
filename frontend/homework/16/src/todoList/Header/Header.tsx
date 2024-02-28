@@ -27,7 +27,7 @@ export function Header() {
     return (
         <div className="header-container"> 
             <h1 className="header-title">Item Lister</h1>
-            <input className="header-input" type="text" placeholder='Search Items' value={searchInput} onChange={searchItem}/>
+            <input  data-testid="searchItemList" className="header-input" type="text" placeholder='Search Items' value={searchInput} onChange={searchItem}/>
         </div>
     )
 }
