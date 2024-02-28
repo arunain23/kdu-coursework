@@ -1,0 +1,24 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    color: #292773;
+  }
+  
+  .main-title-text {
+    color: black;
+  }
+  
+  .loading-container {
+    height: 300px;
+    margin-top: 200px;
+  }
+  
