@@ -1,6 +1,18 @@
-// utils/socket.ts
-import io from 'socket.io-client';
 
-const socket = io('http://your-socket-server-url');
+// // export default socket;
+import { io, Socket } from "socket.io-client";
 
-export default socket;
+interface SocketType {
+    socket: Socket;
+}
+
+class SocketManager {
+    static socket: SocketType;
+
+    static init() {
+        this.socket = { socket: io('http://localhost:5000') };
+    }
+}
+
+export default SocketManager;
+
