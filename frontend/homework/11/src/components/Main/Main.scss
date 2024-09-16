@@ -1,0 +1,17 @@
+$color-primary: #0c359e;
+$color-secondary: #ffe3ca;
+$color-accent: #ee99c2;
+
+.main-container {
+  margin: 50px 350px;
+}
+
+button {
+  background-color: $color-secondary;
+  color: $color-primary;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
