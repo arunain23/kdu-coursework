@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="message.css">
+</head>
+
+<body>
+    <div class="message-container">
+        <div class="left-flex-container flex-item">
+            <div class="navigation-section">
+              <ul>
+                <li class="nav-items logo"><a href="#"><img src="pics/logo-icon.png" alt="Twitter" width="35em" height="auto"></a></li>
+      <li class="nav-items current-page"><a href="#"><img src="pics/home-icon.png" alt="Home" width="35em" height="auto"> Home</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/search-icon.png" alt="Explore"  width="35em" height="auto"> Explore</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/notification-icon.png" alt="Notifications"  width="35em" height="auto"> Notifications</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/message-icon.png" alt="Messages"  width="35em" height="auto"> Messages</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/bookmarks-icon.png" alt="Bookmarks"  width="35em" height="auto"> Bookmarks</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/List-icon.png" alt="Lists"  width="35em" height="auto"> Lists</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/Comm-icon.png" alt="Comm-icon"  width="35em" height="auto"> Communities</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/pre-icon.png" alt="pre"  width="35em" height="auto"> Premium</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/profile-icon.png" alt="Profile"  width="35em" height="auto" width="25em" height="auto"> Profile</a></li>
+      <li class="nav-items"><a href="#"><img src="pics/more-icon.png" alt="More"  width="35em" height="auto"> More</a></li>
+      
+              </ul>
+            </div>
+            <div class="tweet"><a href="#">Post</a></div>
+      
+            <div class="profile-box">
+              <img src="pics/nit-icon.png" alt="profile" class="profile-image">
+              <div class="profile-link">
+                <p class="full-name">Nitesh Gupta</p>
+                <p class="user-name">@nit_hck</p>
+              </div>
+              <div class="options-icon"><i class="fas fa-caret-down"></i></div>
+            </div>
+        </div>
+        <div id="users-list" class="users-list">
+            <div class="user-row">
+                <div>
+                    <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png" alt="">
+                </div>
+                <div>
+                    <div>Name</div>
+                    <div>phone/info</div>
+                </div>
+            </div>
+        </div>
+        <div class="conversation-messages"  id="conversation-messages">
+            <div id="selected-message-profile" class="selected-message-profile"></div>
+            <div class="message-items" id="message-items"></div>
+            <div class="text-editor">
+                <input type="text" class="text-input" id="text-editor">
+                <img id="send-btn" src="https://e7.pngegg.com/pngimages/891/367/png-clipart-computer-icons-symbol-send-email-button-miscellaneous-blue.png" width="20" height="20" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="mobile-nav">
+       
+<a href="#"><img src="pics/home-icon.png" alt="Home" width="35em" height="auto"></a>
+  <a href="#"><img src="pics/search-icon.png" alt="Explore"  width="35em" height="auto"></a>
+  <a href="#"><img src="pics/bookmarks-icon.png" alt="Bookmarks"  width="35em" height="auto"></a>
+<a href="#"><img src="pics/notification-icon.png" alt="Notifications"  width="35em" height="auto"></a>
+<a href="#"><img src="pics/message-icon.png" alt="Messages"  width="35em" height="auto"></a>
+  
+          
+    </div>
+    <script>
+        
+window.onload = function() {
+    var usersList = document.getElementById("users-list");
+    var conversationMessages = document.getElementById("conversation-messages");
+
+   
+    function toggleMobileView() {
+        if (window.innerWidth <= 600) { 
+            if (usersList.style.display === "none") {
+                usersList.style.display = "block";
+                conversationMessages.style.display = "none";
+            } else {
+                usersList.style.display = "none";
+                conversationMessages.style.display = "block";
+            }
+        }
+    }
+
+   
+    usersList.addEventListener("click", toggleMobileView);
+};
+
+    </script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+    <script src="client.js"></script>
+</body>
+</html>
