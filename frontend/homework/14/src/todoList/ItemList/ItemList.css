@@ -1,0 +1,28 @@
+.li-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #eeeeee;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.li-check-style {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.completed-item {
+    text-decoration: line-through;
+    background-color: grey;
+    opacity: 0.5;
+}
+
+.button {
+    background-color: #dc3545;
+    color: white;
+    border: 0;
+    padding: 10px;
+}
